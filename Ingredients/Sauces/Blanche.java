@@ -1,6 +1,6 @@
-package Ingrédients.Sauces;
+package Ingredients.Sauces;
 
-import Ingrédients.InnerIngredient.InnerTypeSauce;
+import Ingredients.InnerIngredient.InnerTypeSauce;
 
 public class Blanche implements InnerTypeSauce {
     private boolean piquante=false;

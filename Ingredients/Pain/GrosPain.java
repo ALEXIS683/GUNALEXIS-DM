@@ -1,6 +1,6 @@
-package Ingrédients.Pain;
+package Ingredients.Pain;
 
-import Ingrédients.InnerIngredient.InnerTypePain;
+import Ingredients.InnerIngredient.InnerTypePain;
 
 public class GrosPain implements InnerTypePain {
     private String nom;

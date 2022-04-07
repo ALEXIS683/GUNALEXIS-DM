@@ -1,4 +1,4 @@
-package Ingrédients.InnerIngredient;
+package Ingredients.InnerIngredient;
 
 /**
  * InnerInnerPain
