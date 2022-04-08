@@ -3,16 +3,11 @@ package Ingredients.Pain;
 import Ingredients.InnerIngredient.InnerTypePain;
 
 public class GrosPain implements InnerTypePain {
-    private String nom;
-    private boolean graines=false;
+    private String nom="Gros Pain";
 
     @Override
     public Boolean aDesGraines() {
-        return graines;
-    }
-
-    public GrosPain(String nom){
-        this.nom = nom;
+        return false;
     }
 
     @Override

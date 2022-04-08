@@ -4,6 +4,7 @@ import PersExcpetions.InvalidKcalExpection;
 
 public interface InnerIngredient {
     int echelleKcal = 100;
+    static final int echellezpoidj=3;
     public void convertKcalToKj();
     public default void setKcalPourCent(int kcal) throws InvalidKcalExpection{
         try{
@@ -13,6 +14,14 @@ public interface InnerIngredient {
         }catch (InvalidKcalExpection e) {
             e.printStackTrace();
         }
+    }
+
+    public default Boolean isVegan(){
+        return false;
+    }
+
+    public default Boolean isVegetarian(){
+        return false;
     }
 
 }

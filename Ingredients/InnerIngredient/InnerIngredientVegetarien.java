@@ -4,6 +4,8 @@ package Ingredients.InnerIngredient;
  * ingredientsVege
  */
 public interface InnerIngredientVegetarien extends InnerIngredient{
-    Boolean isVegetarian();
+    public default Boolean isVegetarian(){
+        return true;
+    }
     
 }

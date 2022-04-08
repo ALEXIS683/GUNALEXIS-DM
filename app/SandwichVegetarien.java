@@ -1,9 +1,9 @@
-package app;
+// package app;
 
-/**
- * SandwichVegetarien
- */
-public class SandwichVegetarien<TypePain, Tsauce, TypeAutIng> extends Sandwich<TypePain, Tsauce, TypeAutIng> {
+// /**
+//  * SandwichVegetarien
+//  */
+// public class SandwichVegetarien<TypePain, Tsauce, TypeAutIng> extends Sandwich<TypePain, Tsauce, TypeAutIng> {
     
     
-}
+// }

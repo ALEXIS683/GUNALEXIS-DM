@@ -10,11 +10,12 @@ public class Sandwich<TypePain, Tsauce, TypeAutIng> {
     private String nomSandwich;
     private TypePain tPain;
     private Tsauce tsauce;
-    private ArrayList<InnerIngredient> TypeAutIng;
+    private ArrayList<TypeAutIng> typeAutIng;
 
-    public void composerSandwich(TypePain tPain, Tsauce tsauce){
+    public Sandwich(TypePain tPain, Tsauce tsauce, ArrayList<TypeAutIng> typeAutIng){
         this.tPain = tPain;
         this.tsauce = tsauce;
+        this.typeAutIng = typeAutIng;
     }
 
     public void moveFrom(Sandwich sandwich){
@@ -30,6 +31,11 @@ public class Sandwich<TypePain, Tsauce, TypeAutIng> {
 
     public InnerIngredient lePlusCalorique(Sandwich sandwich){
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Type de pain : "+tPain+" Type sauce : "+tsauce+" Ingrédients : "+typeAutIng;
     }
 
 }
