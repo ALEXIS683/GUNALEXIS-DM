@@ -1,9 +1,34 @@
-import Ingredients.Pain.*;
-import Ingredients.Sauces.*;
-import app.Sandwich;
+import java.util.ArrayList;
 
 public class Main {
-    public static void main(String[] args) {
-        Sandwich<GrosPain, Blanche, > sandwich1 = new Sandwich<>();
-    }
+  public static void main(String[] args) throws ExceptionCalRange {
+    Pain pain = new Pain();
+    pain.setKcal(150);
+
+    Sauce sauce = new Sauce();
+    sauce.setKcal(50);
+
+    Sandwich<Pain, Sauce, ArrayList<Ingredient>> sandwichNormal = new Sandwich<>(
+        "Standard", pain, sauce);
+
+    Ingredient ingredient = new Ingredient();
+    ingredient.setKcal(20);
+    sandwichNormal.addIngredient(ingredient);
+
+    IngredientVegan ingredientVegan = new IngredientVegan();
+    ingredientVegan.setKcal(225);
+    sandwichNormal.addIngredient(ingredientVegan);
+    System.out.println(sandwichNormal.ingredientPlusCalorique());
+
+    PainVegan painVegan = new PainVegan();
+    painVegan.setKcal(5);
+    SauceVegan sauceVegan = new SauceVegan();
+    sauceVegan.setKcal(5);
+
+    SandwichVegan<PainVegan, SauceVegan, ArrayList<Ingredient>> sandwichVegan = new SandwichVegan<>("ASD", painVegan,
+        sauceVegan);
+
+    sandwichVegan.addIngredient(ingredientVegan);
+    sandwichVegan.addIngredient(ingredient); // Ne va pas marcher comme ingredient n'est pas vegan
+  }
 }
