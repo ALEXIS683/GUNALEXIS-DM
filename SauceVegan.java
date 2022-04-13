@@ -1,3 +1,3 @@
-public class SauceVegan extends Sauce implements AlimentVegan {
+public class SauceVegan extends SauceVegetarien implements AlimentVegan {
 
 }

@@ -1,3 +1,3 @@
-public class PainVegan extends Pain implements AlimentVegan {
+public class PainVegan extends PainVegetarien implements AlimentVegan {
 
 }

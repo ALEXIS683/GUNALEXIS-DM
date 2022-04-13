@@ -1,3 +1,3 @@
-public class IngredientVegan extends Ingredient implements AlimentVegan {
+public class IngredientVegan extends IngredientVegetarien implements AlimentVegan {
 
 }

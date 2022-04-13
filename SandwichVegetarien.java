@@ -10,7 +10,7 @@ public class SandwichVegetarien<P extends PainVegetarien, S extends SauceVegetar
   @Override
   public void addIngredient(Ingredient i) {
     if (!(i instanceof IngredientVegetarien) && !(i instanceof IngredientVegetarien)) {
-      System.err.println("Ingredient n'est pas vegan !");
+      System.err.println("Ingredient n'est pas vegetarien !");
     } else {
       this.ingredients.add(i);
     }
