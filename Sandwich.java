@@ -44,18 +44,16 @@ public class Sandwich<P extends Pain, S extends Sauce, I extends ArrayList<Ingre
     return i;
   }
 
-  public boolean sandwichsAvecMemesIngredients(Sandwich<P, S, I> s) {
-    if (this.ingredients.size() != s.ingredients.size()) {
-      return false;
-    }
+  public boolean sandwichsAvecIngCommun(Sandwich s) {
+    int size = (this.ingredients.size() < s.ingredients.size()) ? this.ingredients.size() : s.ingredients.size();
 
-    for (int counter = 0; counter < s.ingredients.size(); counter++) {
-      if (!this.ingredients.get(counter).equals(s.ingredients.get(counter))) {
-        return false;
+    for (int counter = 0; counter < size; counter++) {
+      if (this.ingredients.get(counter).equals(s.ingredients.get(counter))) {
+        return true;
       }
     }
 
-    return true;
+    return false;
   }
 
   public void moveIngTo(Ingredient i, Sandwich s) {
