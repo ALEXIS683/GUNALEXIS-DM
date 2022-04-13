@@ -58,11 +58,20 @@ public class Sandwich<P extends Pain, S extends Sauce, I extends ArrayList<Ingre
     return true;
   }
 
-  public void moveIngTo(Sandwich<P, S, I> s, Ingredient i) {
+  public void moveIngTo(Ingredient i, Sandwich s) {
     if (!this.ingredients.contains(i)) {
       System.err.println("Ingredient n'est pas dans le sandwich !");
     } else {
-
+      if ((s instanceof SandwichVegetarien)
+          && (!(i instanceof IngredientVegetarien) || !(i instanceof IngredientVegan))) {
+        System.err.println("Ingredient n'est pas compatible avec le sandwich !");
+      } else if ((s instanceof SandwichVegan) && !(i instanceof IngredientVegan)) {
+        System.err.println("Ingredient n'est pas compatible avec le sandwich !");
+      } else {
+        s.ingredients.add(i);
+        this.ingredients.remove(i);
+        System.out.println("Moved!");
+      }
     }
   }
 

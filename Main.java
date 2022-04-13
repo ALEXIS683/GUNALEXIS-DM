@@ -12,12 +12,11 @@ public class Main {
         "Standard", pain, sauce);
 
     Ingredient ingredient = new Ingredient();
-    ingredient.setKcal(20);
+    ingredient.setKcal(999);
     sandwichNormal.addIngredient(ingredient);
     IngredientVegan ingredientVegan = new IngredientVegan();
     ingredientVegan.setKcal(225);
     sandwichNormal.addIngredient(ingredientVegan);
-    System.out.println(sandwichNormal.ingredientPlusCalorique());
 
     // Sandwich vegan
     PainVegan painVegan = new PainVegan();
@@ -33,7 +32,20 @@ public class Main {
 
     SandwichVegetarien<PainVegetarien, SauceVegetarien, ArrayList<Ingredient>> sandwichVegetarien = new SandwichVegetarien<>(
         "Vege", painVegan, sauceVegan);
-    sandwichVegetarien.addIngredient(ingredient);
     sandwichVegetarien.addIngredient(ingredientVegan);
+    IngredientVegetarien ingredientVegetarien = new IngredientVegetarien();
+    sandwichVegetarien.addIngredient(ingredientVegetarien);
+
+    System.out.println(sandwichNormal.ingredientPlusCalorique());
+    System.out.println(sandwichVegetarien.ingredientPlusCalorique());
+    System.out.println(sandwichVegan.ingredientPlusCalorique());
+
+    // 3
+    sandwichVegetarien.moveIngTo(ingredientVegetarien, sandwichVegan);
+    System.out.println(sandwichVegetarien.ingredientPlusCalorique());
+
+    // 4
+    System.out.println(sandwichVegan.sandwichsAvecMemesIngredients(sandwichVegan));
+
   }
 }
