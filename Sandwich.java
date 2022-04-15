@@ -1,6 +1,8 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class Sandwich<P extends Pain, S extends Sauce, I extends ArrayList<Ingredient>> {
+public class Sandwich<P extends Pain, S extends Sauce, I extends ArrayList<Ingredient>>
+    implements Iterable<Ingredient> {
   protected String nom;
   protected P pain;
   protected S sauce;
@@ -30,6 +32,25 @@ public class Sandwich<P extends Pain, S extends Sauce, I extends ArrayList<Ingre
     } else {
       System.err.println("Ingredient n'est pas dans le sandwich !");
     }
+  }
+
+  public Iterator<Ingredient> iterator() {
+    ArrayList<Ingredient> iterable = ingredients;
+    iterable.add(sauce);
+    iterable.add(pain);
+    return iterable.iterator();
+  }
+
+  public Ingredient ingredientPlusCaloriqueIt() {
+    Ingredient i = this.pain;
+
+    for (Ingredient j : this) {
+      if (j.kcal > i.kcal) {
+        i = j;
+      }
+    }
+
+    return i;
   }
 
   public Ingredient ingredientPlusCalorique() {
