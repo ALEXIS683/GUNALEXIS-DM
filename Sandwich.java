@@ -41,7 +41,7 @@ public class Sandwich<P extends Pain, S extends Sauce, I extends ArrayList<Ingre
     return iterable.iterator();
   }
 
-  public Ingredient ingredientPlusCaloriqueIt() {
+  public Ingredient ingredientPlusCaloriqueIterateur() {
     Ingredient i = this.pain;
 
     for (Ingredient j : this) {
@@ -51,6 +51,15 @@ public class Sandwich<P extends Pain, S extends Sauce, I extends ArrayList<Ingre
     }
 
     return i;
+  }
+
+  public Ingredient ingredientPlusCaloriqueStream() {
+    ArrayList<Ingredient> tousIngredients = ingredients;
+    tousIngredients.add(pain);
+    tousIngredients.add(sauce);
+
+    int maxKcal = tousIngredients.stream().mapToInt(x -> x.kcal).max().getAsInt();
+    return (Ingredient) tousIngredients.stream().filter(x -> x.kcal == maxKcal).findFirst().get();
   }
 
   public Ingredient ingredientPlusCalorique() {
