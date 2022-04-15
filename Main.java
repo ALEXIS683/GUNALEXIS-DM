@@ -19,7 +19,7 @@ public class Main {
     PainVegan painVegan = new PainVegan();
     painVegan.setKcal(5);
     SauceVegan sauceVegan = new SauceVegan();
-    sauceVegan.setKcal(5);
+    sauceVegan.setKcal(8);
     SandwichVegan<PainVegan, SauceVegan, ArrayList<Ingredient>> sandwichVegan = new SandwichVegan<>("Vegan", painVegan,
         sauceVegan);
     sandwichVegan.addIngredient(ingredientVegan);
@@ -38,8 +38,6 @@ public class Main {
     // Ces propriétés changeront au fur et à mesure que nous déplacerons
     // ingredientVegan
     System.out.println(sandwichVegan.ingredientPlusCalorique());
-    System.out.println(sandwichVegan.ingredientPlusCaloriqueIterateur());
-    System.out.println(sandwichVegan.ingredientPlusCaloriqueStream());
     System.out.println(sandwichVegan.sandwichsAvecIngCommun(sandwichVegan));
 
     // 3
@@ -56,5 +54,9 @@ public class Main {
 
     sandwichNormal.moveIngTo(ingredient, sandwichVegetarien);
     sandwichVegetarien.moveIngTo(ingredientVegetarien, sandwichVegan);
+
+    // 6 Iterateur et Stream
+    System.out.println(sandwichVegan.ingredientPlusCaloriqueIterateur());
+    System.out.println(sandwichVegan.ingredientPlusCaloriqueStream());
   }
 }

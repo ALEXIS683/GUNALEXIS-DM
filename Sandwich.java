@@ -36,8 +36,8 @@ public class Sandwich<P extends Pain, S extends Sauce, I extends ArrayList<Ingre
 
   public Iterator<Ingredient> iterator() {
     ArrayList<Ingredient> iterable = ingredients;
-    iterable.add(sauce);
     iterable.add(pain);
+    iterable.add(sauce);
     return iterable.iterator();
   }
 
