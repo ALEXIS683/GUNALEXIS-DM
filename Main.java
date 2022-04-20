@@ -7,7 +7,7 @@ public class Main {
     pain.setKcal(150);
     Sauce sauce = new Sauce();
     sauce.setKcal(50);
-    Sandwich<Pain, Sauce, ArrayList<Ingredient>> sandwichNormal = new Sandwich<>(
+    Sandwich<Pain, Sauce, Ingredient> sandwichNormal = new Sandwich<>(
         "Standard", pain, sauce);
     Ingredient ingredient = new Ingredient();
     ingredient.setKcal(500);
@@ -20,11 +20,11 @@ public class Main {
     painVegan.setKcal(5);
     SauceVegan sauceVegan = new SauceVegan();
     sauceVegan.setKcal(8);
-    SandwichVegan<PainVegan, SauceVegan, ArrayList<Ingredient>> sandwichVegan = new SandwichVegan<>("Vegan", painVegan,
+    SandwichVegan<PainVegan, SauceVegan, Ingredient> sandwichVegan = new SandwichVegan<>("Vegan", painVegan,
         sauceVegan);
     sandwichVegan.addIngredient(ingredientVegan);
 
-    SandwichVegetarien<PainVegetarien, SauceVegetarien, ArrayList<Ingredient>> sandwichVegetarien = new SandwichVegetarien<>(
+    SandwichVegetarien<PainVegetarien, SauceVegetarien, Ingredient> sandwichVegetarien = new SandwichVegetarien<>(
         "Vege", painVegan, sauceVegan);
     sandwichVegetarien.addIngredient(ingredientVegan);
     IngredientVegetarien ingredientVegetarien = new IngredientVegetarien();

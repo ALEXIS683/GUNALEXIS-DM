@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class SandwichVegetarien<P extends PainVegetarien, S extends SauceVegetarien, I extends ArrayList<Ingredient>>
+public class SandwichVegetarien<P extends PainVegetarien, S extends SauceVegetarien, I extends Ingredient>
     extends Sandwich<P, S, I> {
 
   public SandwichVegetarien(String nom, P pain, S sauce) {
@@ -8,7 +8,7 @@ public class SandwichVegetarien<P extends PainVegetarien, S extends SauceVegetar
   }
 
   @Override
-  public void addIngredient(Ingredient i) {
+  public void addIngredient(I i) {
     if (!(i instanceof IngredientVegetarien) && !(i instanceof IngredientVegetarien)) {
       System.err.println("Ingredient n'est pas vegetarien !");
     } else {
