@@ -15,14 +15,18 @@ public class Sandwich<P extends Pain, S extends Sauce, I extends Ingredient> imp
   }
 
   public void addIngredient(I i) {
-    this.ingredients.add(i);
+    if (!(i instanceof Pain) || !(i instanceof Sauce)) {
+      this.ingredients.add(i);
+    }
   }
 
   public void removeIngredient(I i) {
-    if (this.ingredients.contains(i)) {
-      this.ingredients.remove(i);
-    } else {
-      System.err.println("Ingredient n'est pas dans le sandwich !");
+    if (!(i instanceof Pain || !(i instanceof Sauce))) {
+      if (this.ingredients.contains(i)) {
+        this.ingredients.remove(i);
+      } else {
+        System.err.println("Ingredient n'est pas dans le sandwich !");
+      }
     }
   }
 
