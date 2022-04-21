@@ -11,7 +11,7 @@ public class Sandwich<P extends Pain, S extends Sauce, I extends Ingredient> imp
     this.nom = nom;
     this.pain = pain;
     this.sauce = sauce;
-    this.ingredients = new ArrayList<I>();
+    this.ingredients = new ArrayList<>();
   }
 
   public void addIngredient(I i) {
