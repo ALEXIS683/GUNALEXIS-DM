@@ -40,7 +40,7 @@ public class Sandwich<P extends Pain, S extends Sauce, I extends Ingredient> imp
   }
 
   public Ingredient ingredientPlusCaloriqueIterateur() {
-    Ingredient i = this.pain;
+    Ingredient i = (this.pain.kcal > this.sauce.kcal) ? this.pain : this.sauce;
 
     for (Ingredient j : this) {
       if (j.kcal > i.kcal) {
