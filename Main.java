@@ -45,7 +45,7 @@ public class Main {
     System.out.println(sandwichVegan.ingredientPlusCalorique());
 
     // 4
-    System.out.println(sandwichVegan.sandwichsAvecIngCommun(sandwichVegan));
+    System.out.println(sandwichVegan.sandwichsAvecIngCommun(sandwichVegetarien));
 
     // 5 Cas incorrects
     // SandwichVegan<PainVegan,SauceVegan,ArrayList<Ingredient>> sandwichVegan2 =
