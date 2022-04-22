@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Sandwich<P extends Pain, S extends Sauce, I extends Ingredient> implements Iterable<I> {
+public class Sandwich<P extends Pain, S extends Sauce, I extends Ingredient> implements Iterable<Ingredient> {
   protected String nom;
   protected P pain;
   protected S sauce;
@@ -30,17 +30,21 @@ public class Sandwich<P extends Pain, S extends Sauce, I extends Ingredient> imp
     }
   }
 
-  public Iterator<I> iterator() {
-    ArrayList<I> iterable = ingredients;
-    iterable.add((I) pain);
-    iterable.add((I) sauce);
+  public Iterator<Ingredient> iterator() {
+    ArrayList<Ingredient> iterable = new ArrayList<>();
+
+    for (int counter = 0; counter < this.ingredients.size(); counter++) {
+      iterable.add(ingredients.get(counter));
+    }
+    iterable.add(pain);
+    iterable.add(sauce);
     return iterable.iterator();
   }
 
-  public I ingredientPlusCaloriqueIterateur() {
-    I i = (I) this.pain;
+  public Ingredient ingredientPlusCaloriqueIterateur() {
+    Ingredient i = this.pain;
 
-    for (I j : this) {
+    for (Ingredient j : this) {
       if (j.kcal > i.kcal) {
         i = j;
       }
@@ -49,17 +53,20 @@ public class Sandwich<P extends Pain, S extends Sauce, I extends Ingredient> imp
     return i;
   }
 
-  public I ingredientPlusCaloriqueStream() {
-    ArrayList<I> tousIngredients = ingredients;
-    tousIngredients.add((I) pain);
-    tousIngredients.add((I) sauce);
+  public Ingredient ingredientPlusCaloriqueStream() {
+    ArrayList<Ingredient> tousIngredients = new ArrayList<>();
+    for (int counter = 0; counter < this.ingredients.size(); counter++) {
+      tousIngredients.add(ingredients.get(counter));
+    }
+    tousIngredients.add(pain);
+    tousIngredients.add(sauce);
 
     int maxKcal = tousIngredients.stream().mapToInt(x -> x.kcal).max().getAsInt();
-    return (I) tousIngredients.stream().filter(x -> x.kcal == maxKcal).findFirst().get();
+    return tousIngredients.stream().filter(x -> x.kcal == maxKcal).findFirst().get();
   }
 
-  public I ingredientPlusCalorique() {
-    I i = (this.pain.kcal > this.sauce.kcal) ? (I) this.pain : (I) this.sauce;
+  public Ingredient ingredientPlusCalorique() {
+    Ingredient i = (this.pain.kcal > this.sauce.kcal) ? this.pain : this.sauce;
 
     for (int counter = 0; counter < this.ingredients.size(); counter++) {
       if (this.ingredients.get(counter).kcal > i.kcal) {
@@ -70,7 +77,7 @@ public class Sandwich<P extends Pain, S extends Sauce, I extends Ingredient> imp
     return i;
   }
 
-  public boolean sandwichsAvecIngCommun(Sandwich s) {
+  public boolean sandwichsAvecIngCommun(Sandwich<?, ?, ? super I> s) {
     int size = (this.ingredients.size() < s.ingredients.size()) ? this.ingredients.size() : s.ingredients.size();
 
     for (int counter = 0; counter < size; counter++) {
@@ -82,7 +89,7 @@ public class Sandwich<P extends Pain, S extends Sauce, I extends Ingredient> imp
     return false;
   }
 
-  public void moveIngTo(I i, Sandwich s) {
+  public void moveIngTo(I i, Sandwich<?, ?, ? super I> s) {
     if (!this.ingredients.contains(i)) {
       System.err.println("Ingredient n'est pas dans le sandwich !");
     } else {
