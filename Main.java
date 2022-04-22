@@ -38,7 +38,7 @@ public class Main {
     // Ces propriétés changeront au fur et à mesure que nous déplacerons
     // ingredientVegan
     System.out.println(sandwichVegan.ingredientPlusCalorique());
-    System.out.println(sandwichVegan.sandwichsAvecIngCommun(sandwichVegan));
+    System.out.println(sandwichVegan.sandwichsAvecIngCommun(sandwichVegetarien));
 
     // 3
     sandwichVegan.moveIngTo(ingredientVegan, sandwichVegetarien);
