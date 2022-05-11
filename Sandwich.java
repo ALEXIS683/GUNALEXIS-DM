@@ -92,7 +92,7 @@ public class Sandwich<P extends Pain, S extends Sauce, I extends Ingredient> imp
       System.err.println("Ingredient n'est pas dans le sandwich !");
     } else {
       if ((s instanceof SandwichVegetarien)
-          && (!(i instanceof IngredientVegetarien) || !(i instanceof IngredientVegan))) {
+          && (!(i instanceof IngredientVegetarien) && !(i instanceof IngredientVegan))) {
         System.err.println("Ingredient n'est pas compatible avec le sandwich !");
       } else if ((s instanceof SandwichVegan) && !(i instanceof IngredientVegan)) {
         System.err.println("Ingredient n'est pas compatible avec le sandwich !");
