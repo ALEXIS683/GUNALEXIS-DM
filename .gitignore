@@ -1,3 +1,5 @@
+*.class
+
 #MACOS unused files
 # General
 .DS_Store
