@@ -1,8 +1,8 @@
-import java.util.ArrayList;
+package src;
 
 public class Main {
   public static void main(String[] args) throws ExceptionCalRange {
-    // 1 Création des sandwichs
+    // 1) Création des Sandwichs
     Pain pain = new Pain();
     pain.setKcal(150);
     Sauce sauce = new Sauce();
@@ -31,31 +31,30 @@ public class Main {
     ingredientVegetarien.setKcal(250);
     sandwichVegetarien.addIngredient(ingredientVegetarien);
 
-    // 2 Affichage l'ingrédient plus calorique
+    // 2) Affichage de Ingrédient Plus Calorique
     System.out.println(sandwichNormal.ingredientPlusCalorique());
     System.out.println(sandwichVegetarien.ingredientPlusCalorique());
 
-    // Ces propriétés changeront au fur et à mesure que nous déplacerons
-    // ingredientVegan
+    // Ces Valeurs Changeront Quand Nous Déplacerons ingredientVegan
     System.out.println(sandwichVegan.ingredientPlusCalorique());
     System.out.println(sandwichVegan.sandwichsAvecIngCommun(sandwichVegetarien));
 
-    // 3
+    // 3)
     sandwichVegan.moveIngTo(ingredientVegan, sandwichVegetarien);
     System.out.println(sandwichVegan.ingredientPlusCalorique());
 
-    // 4
+    // 4)
     System.out.println(sandwichVegan.sandwichsAvecIngCommun(sandwichVegetarien));
 
-    // 5 Cas incorrects
+    // 5) Cas Incorrects
     // SandwichVegan<PainVegan,SauceVegan,ArrayList<Ingredient>> sandwichVegan2 =
     // new SandwichVegan<>("Vegan2", pain, sauce);
-    // ça marche pas
+    // Cela Compile Pas
 
     sandwichNormal.moveIngTo(ingredient, sandwichVegetarien);
     sandwichVegetarien.moveIngTo(ingredientVegetarien, sandwichVegan);
 
-    // 6 Iterateur et Stream
+    // 6) Iterateur et Stream
     System.out.println(sandwichVegan.ingredientPlusCaloriqueIterateur());
     System.out.println(sandwichVegan.ingredientPlusCaloriqueStream());
   }

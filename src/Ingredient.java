@@ -1,3 +1,4 @@
+package src;
 public class Ingredient implements Aliment {
   protected int kcal = 0;
 

@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+package src;
 
 public class SandwichVegetarien<P extends PainVegetarien, S extends SauceVegetarien, I extends Ingredient>
     extends Sandwich<P, S, I> {

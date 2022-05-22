@@ -1,4 +1,8 @@
-# Instructions
+# Projet Modélisation et Programmation par Objets 2
 
-1. $ javac Main.java
-2. $ java Main.java
+![UML](./UML.png)
+
+## Instructions
+
+1. $ javac ./src/Main.java
+2. $ java ./src/Main.java
